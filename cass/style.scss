@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gloock', serif;
+    margin: 0;
+}
+
+
+.loading{
+    position: fixed;
+    top:45%;
+    left: 43%;
+    overflow: hidden;
+    font-size: 50px;
+    white-space: nowrap;
+    animation-name: showHide, hideShow;
+    animation-duration: 1s, 1s;
+    animation-delay: 0s, 2s;
+    animation-timing-function: cubic-bezier(0,0,0,1);
+    animation-fill-mode: forwards;
+}
+
+@keyframes showHide{
+    0% {width: 0;}
+    100% {width: 248px;}
+}
+@keyframes hideShow{
+    0% {height: 60px; top:45%;}
+    100% {height: 0; top: 51%;}
+}
+
+
+.title{
+    background-color: aliceblue;
+    padding: 20px;
+    font-family: 'Gloock', serif;
+    text-align: center;
+    h1{
+        font-family: 'Rampart One', cursive;
+    }
+}
+
+.header{
+    display: flex;
+    width: 100%;
+}
+
+.unselected{
+    background-color: rgb(11, 90, 192);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    flex: 0.5;
+    width: 20vw;
+    transition: background-color .25s ease-out, flex .25s ease-out;
+    h3{
+        font-size: 10px;
+        text-align: center;
+        transition: font-size .25s ease-out;
+    }
+    &.selected{
+        background-color: rgb(0, 140, 255);
+        flex: 1;
+        transition: background-color .25s ease-out, flex .25s ease-out;
+    }
+}
+
+
+.intro{
+
+}
