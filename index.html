@@ -16,27 +16,40 @@
 
     <section class="page">
         <div class="title">
-            <h1>Yike Chen</h1>
-            <div>
-                <a href="mailto:chenyike1998@gmail.com">chenyike1998@gmail.com</a>
-                <a>  |  </a>
-                <a href="https://github.com/YikeChenn">GitHub</a>
+            <h1 id="Yike">Yike Chen</h1>
+            <div class="icon">
+                <a href="mailTo:chenyike1998@gmail.com"><p id="emailIcon"></p></a>
+                <a href="mailTo:chenyike1998@gmail.com"><p id="emailIconUp"></p></a>
+                <a href="https://github.com/YikeChenn" target="_blank"><p id="gitIcon"></p></a>
+                <a href="https://github.com/YikeChenn" target="_blank"><p id="gitIconUp"></p></a>
             </div>
 
         </div>
-        <div class="header">
-            <div class="unselected">
-                <h3>Hi!</h3>
-            </div>
-            <div class="unselected">
-                <h3>Hello!</h3>
-            </div>
+
+        
+
+        <div id="sideMenu">
+            <button id="openSideButton" onclick="ifOpenSidebar()">&#9776;</button>
         </div>
+
+        <div id="sideBar" class="sideBar">
+            <h1>Navigation</h1>
+            <p class="closeButton" onclick="closeSidebar()">&times;</p>
+            <p class="clicked">Introduction</p>
+            <p></p>
+        </div>
+
+        <div class="mainPart">
+            <h1>Introduction</h1>
+            <p>Hi, welcome to my page! I'm Yike Chen</p>
+        </div>
+
     </section>
     
 
       
 </body>
 <script src="script/script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 </html>
