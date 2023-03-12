@@ -33,7 +33,6 @@ function closeSidebar(){
     $(".mainPart").animate({padding: '100px 0px 100px 100px'}, 500)
 }
 
-
 // //sidebar 
 // const unclicked = document.querySelectorAll('li')
 
