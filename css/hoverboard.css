@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(0, 0, 0);
+  font-family: "VT323", monospace;
+  margin: 0;
+}
+
+#borderLight {
+  z-index: -20;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  box-shadow: inset 0 0 10px rgb(177, 177, 177);
+}
+
+#hideButton {
+  position: absolute;
+  top: 1vh;
+  right: 5vw;
+  padding: 0 10px;
+  color: #FFF;
+  transition: 0.5s;
+  border: 2px solid white;
+  background-color: transparent;
+  cursor: pointer;
+  transform-origin: 50% 50% 0;
+}
+
+#hideButton:hover {
+  scale: 1.05;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgb(207, 207, 207);
+  transition: 0.5s;
+}
+
+.title {
+  color: #ffffff;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%) skewX(0deg);
+  font-size: 64px;
+  font-family: "VT323", monospace;
+  animation: skewX 5s ease-in infinite;
+}
+
+#white {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 3px;
+  background: rgb(0, 0, 0);
+  z-index: 4;
+  animation: whiteMove 3s ease-out infinite;
+  mix-blend-mode: luminosity;
+}
+
+.title:before {
+  content: attr(data-word);
+  position: absolute;
+  top: 0;
+  left: 1px;
+  height: 0px;
+  color: rgba(255, 0, 0, 0.9);
+  overflow: hidden;
+  z-index: 2;
+  filter: contrast(200%);
+  animation: redShadow 1.5s ease-in infinite;
+  text-shadow: 0.1px 0 0 red;
+  mix-blend-mode: color-burn;
+}
+
+.title:after {
+  content: attr(data-word);
+  position: absolute;
+  top: 0;
+  left: -3px;
+  height: 64px;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  z-index: 3;
+  filter: contrast(200%);
+  background: rgb(0, 0, 0);
+  animation: redHeight 2s ease-out infinite;
+  mix-blend-mode: hard-light;
+}
+
+@keyframes redShadow {
+  20% {
+    left: -1px;
+    height: 32px;
+  }
+  60% {
+    left: 2px;
+    height: 6px;
+  }
+  100% {
+    left: -2px;
+    height: 42px;
+  }
+}
+@keyframes redHeight {
+  20% {
+    height: 42px;
+  }
+  35% {
+    height: 12px;
+  }
+  50% {
+    height: 40px;
+  }
+  60% {
+    height: 20px;
+  }
+  70% {
+    height: 34px;
+  }
+  80% {
+    height: 22px;
+  }
+  100% {
+    height: 0px;
+  }
+}
+@keyframes whiteMove {
+  8% {
+    top: 70%;
+  }
+  10% {
+    top: 10%;
+  }
+  12% {
+    top: 90%;
+  }
+  99% {
+    top: 80%;
+  }
+}
+@keyframes skewX {
+  78% {
+    transform: translate(-50%, -50%) skewX(0);
+  }
+  79% {
+    transform: translate(-50%, -50%) skewX(10deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) skewX(-10deg);
+  }
+  81% {
+    transform: translate(-50%, -50%) skewX(0);
+  }
+}
+#emailIcon {
+  position: absolute;
+  top: 80%;
+  left: 8px;
+  height: 20px;
+  width: 30px;
+  z-index: 0;
+  background-image: url("../icon/email-icon.png"), linear-gradient(rgb(59, 59, 59), rgb(192, 192, 192));
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+#emailIconUp {
+  position: absolute;
+  top: 80%;
+  left: 8px;
+  height: 20px;
+  width: 30px;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.5s;
+  background-image: url("../icon/email-icon.png"), linear-gradient(rgb(170, 170, 170), rgb(167, 167, 167));
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+#emailIconUp:hover {
+  transition: 0.5s;
+  opacity: 1;
+}
+
+#gitIcon {
+  position: absolute;
+  top: 85%;
+  left: 8px;
+  height: 30px;
+  width: 30px;
+  z-index: 0;
+  background-image: url("../icon/github-mark.png"), linear-gradient(rgb(59, 59, 59), rgb(192, 192, 192));
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+#gitIconUp {
+  position: absolute;
+  top: 85%;
+  left: 8px;
+  height: 30px;
+  width: 30px;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.5s;
+  background-image: url("../icon/github-mark.png"), linear-gradient(rgb(170, 170, 170), rgb(167, 167, 167));
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+#gitIconUp:hover {
+  transition: 0.5s;
+  opacity: 1;
+}
+
+#sideBar {
+  height: 100vh;
+  width: 0;
+  z-index: 2;
+  position: absolute;
+  background-color: black;
+  overflow-x: hidden;
+  z-index: 10;
+}
+#sideBar h1 {
+  color: rgb(255, 255, 255);
+  padding: 8px 8px 8px 12px;
+}
+#sideBar p {
+  cursor: pointer;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  display: block;
+  transition: 0.25s;
+}
+#sideBar p.clicked {
+  color: rgb(176, 218, 255);
+  background-color: rgb(0, 140, 255);
+}
+#sideBar p.closeButton {
+  padding: 0 0 0 0;
+}
+#sideBar p:hover {
+  background-color: rgb(0, 140, 255);
+}
+#sideBar p:hover.closeButton {
+  background-color: black;
+  color: rgb(0, 136, 255);
+}
+#sideBar .closeButton {
+  border: none;
+  padding: 0 0 0 0;
+  position: absolute;
+  top: -35px;
+  right: 5%;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#sideIcon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 100vh;
+  background: black;
+  border: 2px solid white;
+  z-index: -1;
+}
+
+#openSideButton:hover {
+  background-color: #979797;
+}
+
+#openSideButton {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: -5px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 13px;
+  transition: 0.5s;
+}
+
+#sideMenu {
+  position: absolute;
+}
+
+@media screen and (max-height: 450px) {
+  .sideBar {
+    padding-top: 15px;
+  }
+  .sideBar a {
+    font-size: 18px;
+  }
+}
+.mainPart {
+  position: absolute;
+  top: 200px;
+  left: 14%;
+}
+.mainPart .hiddenPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 0;
+  width: 75vw;
+  opacity: 0;
+  background-color: white;
+  transition: 1s;
+}
+.mainPart .hiddenPage h1 {
+  position: relative;
+  left: 10%;
+}
+.mainPart .hiddenPage p {
+  position: relative;
+  left: 10%;
+}
+.mainPart .hiddenPage p.starBackgroundSelection {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  z-index: 0;
+  font-size: 20px;
+  background-image: url("../icon/StarBackground.gif");
+  mix-blend-mode: luminosity;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px 20px;
+  width: 60%;
+  border: rgb(212, 212, 212) solid 2px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  transition: 0.2s;
+}
+.mainPart .hiddenPage p.starBackgroundSelection#starBackgroundSelectionTextUp {
+  mix-blend-mode: normal;
+  z-index: 1;
+  opacity: 0;
+}
+.mainPart .hiddenPage p.starBackgroundSelection:hover {
+  color: #ffffff;
+  border: rgb(240, 238, 238) solid 5px;
+}
+.mainPart .hiddenPage p.starBackgroundSelection:hover#starBackgroundSelectionTextUp:hover {
+  opacity: 1;
+}
+.mainPart .hiddenPage p.hoverBoardBackgroundSelection {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  z-index: 0;
+  font-size: 20px;
+  background-image: url("../icon/HoverBoardBackground.gif");
+  mix-blend-mode: luminosity;
+  background-position: 50% 45%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px 20px;
+  width: 60%;
+  border: rgb(212, 212, 212) solid 2px;
+  border-radius: 10px;
+  color: rgb(163, 163, 163);
+  transition: 0.2s;
+}
+.mainPart .hiddenPage p.hoverBoardBackgroundSelection#hoverBoardBackgroundSelectionTextUp {
+  mix-blend-mode: normal;
+  z-index: 1;
+  opacity: 0;
+}
+.mainPart .hiddenPage p.hoverBoardBackgroundSelection:hover {
+  color: #ffffff;
+  border: rgb(240, 238, 238) solid 5px;
+}
+.mainPart .hiddenPage p.hoverBoardBackgroundSelection:hover#hoverBoardBackgroundSelectionTextUp:hover {
+  opacity: 1;
+}
+.mainPart .hiddenPage.frontPage {
+  height: 500px;
+  opacity: 1;
+  transition: 1s;
+}
+
+#hoverBoard {
+  z-index: -20;
+  position: absolute;
+  left: 7vw;
+  top: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 90vw;
+  max-height: 85vh;
+  overflow: hidden;
+}
+
+.square {
+  background-color: #1d1d1d;
+  box-shadow: 0 0 2px #000;
+  height: 16px;
+  width: 16px;
+  margin: 2px;
+  transition: 2s ease;
+}
+
+.square:hover {
+  transition-duration: 0s;
+}/*# sourceMappingURL=hoverboard.css.map */

@@ -7,14 +7,29 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
+    background: radial-gradient(farthest-corner at bottom, rgb(255, 179, 179), rgb(0, 26, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'Gloock', serif;
     margin: 0;
 }
 
+// @property --RGColor1{
+//     syntax: '<color>';
+//     initial-value: rgb(255, 179, 179);
+//     inherits: false;
+// }
+
+// @property --RGColor2{
+//     syntax: '<color>';
+//     initial-value: rgb(0, 26, 255);
+//     inherits: false;
+// }
+
 //starting bluring
 .loading{
-    color: rgb(0, 0, 0);
+    z-index: 10;
+    color: rgb(255, 255, 255);
     position: absolute;
     top:45%;
     left: 43%;
@@ -49,37 +64,33 @@ body {
     
     h1{
         font-family: 'Lora', serif;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
     }
 }
 
 // Icon
-.icon{
-    width: 200px;
-    height: 100px;
-    position: relative;
-    left: -15%;
-}
+
 #emailIcon{
     position: absolute;
-    top: -30%;
-    left: 10%;
-    height: 60px;
-    width: 60px;
+    top: 80%;
+    left: 8px;
+    height: 20px;
+    width: 30px;
     z-index: 0;
-    background-image: url("../icon/email-icon.png");
+    background-image: url("../icon/email-icon.png"), linear-gradient(rgb(0, 32, 175),rgb(0, 0, 0));
     background-size: cover;
+    background-blend-mode: lighten;
 }
 #emailIconUp{
     position: absolute;
-    top: -30%;
-    left: 10%;
-    height: 60px;
-    width: 60px;
+    top: 80%;
+    left: 8px;
+    height: 20px;
+    width: 30px;
     z-index: 1;
     opacity: 0;
     transition: 0.5s;
-    background-image: url("../icon/email-icon.png"), linear-gradient(rgb(0, 225, 255),rgb(255, 179, 179));
+    background-image: url("../icon/email-icon.png"), linear-gradient(rgb(0, 26, 255),rgb(255, 179, 179));
     background-size: cover;
     background-blend-mode: lighten;
 }
@@ -90,24 +101,25 @@ body {
 
 #gitIcon{
     position: absolute;
-    left: 68%;
-    top: -23%;
-    height: 45px;
-    width: 45px;
+    top: 85%;
+    left: 8px;
+    height: 30px;
+    width: 30px;
     z-index: 0;
-    background-image: url("../icon/github-mark.jpg");
+    background-image: url("../icon/github-mark.png"), linear-gradient(rgb(0, 32, 175),rgb(0, 0, 0));
     background-size: cover;
+    background-blend-mode: lighten;
 }
 #gitIconUp{
     position: absolute;
-    left: 68%;
-    top: -23%;
-    height: 45px;
-    width: 45px;
+    top: 85%;
+    left: 8px;
+    height: 30px;
+    width: 30px;
     z-index: 1;
     opacity: 0;
     transition: 0.5s;
-    background-image: url("../icon/github-mark.jpg"), linear-gradient(rgb(0, 225, 255),rgb(255, 179, 179));
+    background-image: url("../icon/github-mark.png"), linear-gradient(rgb(0, 26, 255),rgb(255, 179, 179));
     background-size: cover;
     background-blend-mode: lighten;
 }
@@ -116,18 +128,21 @@ body {
     opacity: 1;
 }
 
-.sideBar{
+
+//side bar
+#sideBar{
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     background-color: black;
     overflow-x: hidden;
+    z-index: 5;
     h1{
         color: rgb(255, 255, 255);
-        padding: 8px 8px 8px 32px;
+        padding: 8px 8px 8px 12px;
     }
     p{
         cursor: pointer;
@@ -166,24 +181,50 @@ body {
 
 }
 
-#openSideButton {
+
+#sideIcon{
     position: absolute;
     left: 0;
     top: 0;
+    width: 48px;
+    height: 100vh;
+    background: linear-gradient(rgb(0, 26, 255) 30%, rgb(255, 179, 179));
+    z-index: -1;
+}
+#openSideButton:hover {
+    --LGColor1: rgb(0, 26, 255);
+    --LGColor2: rgb(255, 179, 179);
+}
+
+#openSideButton {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: -5px;
     font-size: 20px;
     cursor: pointer;
-    background-color: #111;
+    background-image: linear-gradient(var(--LGColor1),var(--LGColor2));
     color: white;
     padding: 10px 15px;
     border: none;
-    transition: background-color 0.5s;
+    transition: --LGColor1 .5s, --LGColor2 .5s;
 }
-.openButton:hover {
-    background-color: #adadad;
+
+@property --LGColor1{
+    syntax: '<color>';
+    initial-value: rgb(0, 26, 255);
+    inherits: false;
+}
+
+@property --LGColor2{
+    syntax: '<color>';
+    initial-value: rgb(0, 26, 255);
+    inherits: false;
 }
 
 #sideMenu {
-    padding: 20px;
+    position: absolute;
+
 }
 
 @media screen and (max-height: 450px) {
@@ -191,6 +232,34 @@ body {
     .sideBar a {font-size: 18px;}
 }
 
+
+//Three main page
 .mainPart{
-    padding: 100px 0px 100px 100px;
+    position: absolute;
+    top: 200px;
+    left: 10%;
+    .hiddenPage{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        height: 0;  
+        width: 75vw;
+        opacity: 0;
+        background-color: white;
+        h1{
+            position: relative;
+            left: 10%;
+        }
+        p{
+            position: relative;
+            left: 10%; 
+        }
+        transition: 1s;
+        &.frontPage{
+            height: 500px;
+            opacity: 1;
+            transition: 1s;
+        }
+    }
 }

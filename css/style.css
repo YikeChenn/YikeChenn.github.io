@@ -5,13 +5,16 @@
 }
 
 body {
-  background-color: rgb(255, 255, 255);
+  background: radial-gradient(farthest-corner at bottom, rgb(255, 179, 179), rgb(0, 26, 255));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Gloock", serif;
   margin: 0;
 }
 
 .loading {
-  color: rgb(0, 0, 0);
+  z-index: 10;
+  color: rgb(255, 255, 255);
   position: absolute;
   top: 45%;
   left: 43%;
@@ -54,37 +57,31 @@ body {
 }
 .title h1 {
   font-family: "Lora", serif;
-  color: rgb(0, 0, 0);
-}
-
-.icon {
-  width: 200px;
-  height: 100px;
-  position: relative;
-  left: -15%;
+  color: rgb(255, 255, 255);
 }
 
 #emailIcon {
   position: absolute;
-  top: -30%;
-  left: 10%;
-  height: 60px;
-  width: 60px;
+  top: 80%;
+  left: 8px;
+  height: 20px;
+  width: 30px;
   z-index: 0;
-  background-image: url("../icon/email-icon.png");
+  background-image: url("../icon/email-icon.png"), linear-gradient(rgb(0, 32, 175), rgb(0, 0, 0));
   background-size: cover;
+  background-blend-mode: lighten;
 }
 
 #emailIconUp {
   position: absolute;
-  top: -30%;
-  left: 10%;
-  height: 60px;
-  width: 60px;
+  top: 80%;
+  left: 8px;
+  height: 20px;
+  width: 30px;
   z-index: 1;
   opacity: 0;
   transition: 0.5s;
-  background-image: url("../icon/email-icon.png"), linear-gradient(rgb(0, 225, 255), rgb(255, 179, 179));
+  background-image: url("../icon/email-icon.png"), linear-gradient(rgb(0, 26, 255), rgb(255, 179, 179));
   background-size: cover;
   background-blend-mode: lighten;
 }
@@ -96,25 +93,26 @@ body {
 
 #gitIcon {
   position: absolute;
-  left: 68%;
-  top: -23%;
-  height: 45px;
-  width: 45px;
+  top: 85%;
+  left: 8px;
+  height: 30px;
+  width: 30px;
   z-index: 0;
-  background-image: url("../icon/github-mark.jpg");
+  background-image: url("../icon/github-mark.png"), linear-gradient(rgb(0, 32, 175), rgb(0, 0, 0));
   background-size: cover;
+  background-blend-mode: lighten;
 }
 
 #gitIconUp {
   position: absolute;
-  left: 68%;
-  top: -23%;
-  height: 45px;
-  width: 45px;
+  top: 85%;
+  left: 8px;
+  height: 30px;
+  width: 30px;
   z-index: 1;
   opacity: 0;
   transition: 0.5s;
-  background-image: url("../icon/github-mark.jpg"), linear-gradient(rgb(0, 225, 255), rgb(255, 179, 179));
+  background-image: url("../icon/github-mark.png"), linear-gradient(rgb(0, 26, 255), rgb(255, 179, 179));
   background-size: cover;
   background-blend-mode: lighten;
 }
@@ -124,21 +122,22 @@ body {
   opacity: 1;
 }
 
-.sideBar {
+#sideBar {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: black;
   overflow-x: hidden;
+  z-index: 5;
 }
-.sideBar h1 {
+#sideBar h1 {
   color: rgb(255, 255, 255);
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 12px;
 }
-.sideBar p {
+#sideBar p {
   cursor: pointer;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -147,21 +146,21 @@ body {
   display: block;
   transition: 0.25s;
 }
-.sideBar p.clicked {
+#sideBar p.clicked {
   color: rgb(176, 218, 255);
   background-color: rgb(0, 140, 255);
 }
-.sideBar p.closeButton {
+#sideBar p.closeButton {
   padding: 0 0 0 0;
 }
-.sideBar p:hover {
+#sideBar p:hover {
   background-color: rgb(0, 140, 255);
 }
-.sideBar p:hover.closeButton {
+#sideBar p:hover.closeButton {
   background-color: black;
   color: rgb(0, 136, 255);
 }
-.sideBar .closeButton {
+#sideBar .closeButton {
   border: none;
   padding: 0 0 0 0;
   position: absolute;
@@ -171,25 +170,47 @@ body {
   margin-left: 50px;
 }
 
-#openSideButton {
+#sideIcon {
   position: absolute;
   left: 0;
   top: 0;
+  width: 48px;
+  height: 100vh;
+  background: linear-gradient(rgb(0, 26, 255) 30%, rgb(255, 179, 179));
+  z-index: -1;
+}
+
+#openSideButton:hover {
+  --LGColor1: rgb(0, 26, 255);
+  --LGColor2: rgb(255, 179, 179);
+}
+
+#openSideButton {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: -5px;
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
+  background-image: linear-gradient(var(--LGColor1), var(--LGColor2));
   color: white;
   padding: 10px 15px;
   border: none;
-  transition: background-color 0.5s;
+  transition: --LGColor1 0.5s, --LGColor2 0.5s;
 }
 
-.openButton:hover {
-  background-color: #adadad;
+@property --LGColor1 {
+  syntax: "<color>";
+  initial-value: rgb(0, 26, 255);
+  inherits: false;
 }
-
+@property --LGColor2 {
+  syntax: "<color>";
+  initial-value: rgb(0, 26, 255);
+  inherits: false;
+}
 #sideMenu {
-  padding: 20px;
+  position: absolute;
 }
 
 @media screen and (max-height: 450px) {
@@ -201,5 +222,31 @@ body {
   }
 }
 .mainPart {
-  padding: 100px 0px 100px 100px;
+  position: absolute;
+  top: 200px;
+  left: 10%;
+}
+.mainPart .hiddenPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 0;
+  width: 75vw;
+  opacity: 0;
+  background-color: white;
+  transition: 1s;
+}
+.mainPart .hiddenPage h1 {
+  position: relative;
+  left: 10%;
+}
+.mainPart .hiddenPage p {
+  position: relative;
+  left: 10%;
+}
+.mainPart .hiddenPage.frontPage {
+  height: 500px;
+  opacity: 1;
+  transition: 1s;
 }/*# sourceMappingURL=style.css.map */
