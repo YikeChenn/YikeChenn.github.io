@@ -5,14 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="YikeChen">
-    <!-- <link rel="stylesheet" href="css/style.css" title="starsCSS"> -->
-    <!-- <link rel="stylesheet" href="css/loading.css"> -->
+    <link rel="stylesheet" href="css/loading.css">
     <link rel="stylesheet" href="css/stars.css" title="starsCSS">
     <link rel="stylesheet" href="css/hoverboard.css" title="hoverboardCSS">
     <title>Yike's Page</title>
     
 </head>
 <body>
+    <div class="loadingSign">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <p>loading...</p>
+    </div>
     <div id="borderLight"></div>
     <div id="starBackground" class="usingBackground">
         <div id="stars"></div>
@@ -26,39 +31,78 @@
             <p>Only Show Background</p>
         </div>
 
+        <div id="sideMenu">
+            <button id="openSideButton" onclick="ifOpenSidebar()">&#9776;</button>
+            <div id="sideIcon">
+                <a href="mailTo:chenyike1998@gmail.com"><p id="emailIcon"></p></a>
+                <a href="mailTo:chenyike1998@gmail.com"><p id="emailIconUp"></p></a>
+                <a href="https://github.com/YikeChenn" target="_blank"><p id="gitIcon"></p></a>
+                <a href="https://github.com/YikeChenn" target="_blank"><p id="gitIconUp"></p></a>
+            </div>
+        </div>
+
+        <div id="sideBar">
+            <h1>Navigation</h1>
+            <p class="closeButton" onclick="closeSidebar()">&times;</p>
+            <p class="clicked sideBar" id="introductionSideBar">Introduction</p>
+            <p class="sideBar" id="articleSideBar">Article</p>
+            <p class="sideBar" id="settingsSideBar">Settings</p>
+        </div>
+
         <div id="hiddenPart">
             <div class="title" data-word="Yike Chen">
                 Yike Chen
-                <div id="white"></div>
+                <div id="black"></div>
             </div>
 
         
 
-            <div id="sideMenu">
-                <button id="openSideButton" onclick="ifOpenSidebar()">&#9776;</button>
-                <div id="sideIcon">
-                    <a href="mailTo:chenyike1998@gmail.com"><p id="emailIcon"></p></a>
-                    <a href="mailTo:chenyike1998@gmail.com"><p id="emailIconUp"></p></a>
-                    <a href="https://github.com/YikeChenn" target="_blank"><p id="gitIcon"></p></a>
-                    <a href="https://github.com/YikeChenn" target="_blank"><p id="gitIconUp"></p></a>
-                </div>
-            </div>
-
-            <div id="sideBar">
-                <h1>Navigation</h1>
-                <p class="closeButton" onclick="closeSidebar()">&times;</p>
-                <p class="clicked sideBar" id="introductionSideBar">Introduction</p>
-                <p class="sideBar" id="vedioSideBar">Vedio</p>
-                <p class="sideBar" id="settingsSideBar">Settings</p>
-            </div>
+            
 
             <div class="mainPart">
                 <div id="introPart" class="hiddenPage frontPage">
-                    <h1>Introduction</h1>
-                    <p>Hi, I'm Yike Chen, and welcome to my page!</p>
-                    <p></p>
+                    <div id="headingIntro">
+                        <h1>Yike Chen</h1>
+                        <h3>Front End Developer/Designer/Drum Palyer</h3>
+                    </div>
+                    
+                    <div id="biography">
+                        <h2>Biography</h1>
+                        <table>
+                            <tr>
+                                <th>1998</th>
+                                <th>Born in Shenyang, China</th>
+                            </tr>
+                            <tr>
+                                <th>2020</th>
+                                <th>Graduated in Sichuan University, completed the B.Eng. Program of Industrial Engineering</th>
+                            </tr>
+                            <tr>
+                                <th>2023</th>
+                                <th>Graduated in Sichuan University, completed the B.Eng. Program of Industrial Engineering</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div id="skill">
+                        <h2>Skill</h2>
+                        <table>
+                            <tr>
+                                <th>Coding Languages</th>
+                                <th>JavaScript, jQuery, C++</th>
+                            </tr>
+                            <tr>
+                                <th>Web Skills</th>
+                                <th>HTML5, CSS3, SASS/SCSS, Node.JS</th>
+                            </tr>
+                            <tr>
+                                <th>Development Tools</th>
+                                <th>Git, GitHub</th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                <div id="vedioPart" class="hiddenPage">
+                <div id="articlePart" class="hiddenPage">
                     <p>Test</p>
                 </div>
                 <div id="settingPart" class="hiddenPage">
@@ -82,6 +126,6 @@
       
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="script/script.js"></script>
-<script src="script/hoverboard.js" title="hoverBoardJS"></script>
+<script src="script/script.js" id="mainScript"></script>
+<script src="script/hoverboard.js" id="hoverBoardJS"></script>
 </html> 

@@ -131,7 +131,6 @@ body {
 }
 #sideBar p.clicked {
   color: rgb(176, 218, 255);
-  background-color: rgb(0, 140, 255);
 }
 #sideBar p.closeButton {
   padding: 0 0 0 0;
@@ -220,15 +219,36 @@ body {
   background-color: white;
   transition: 1s;
 }
-.mainPart .hiddenPage h1 {
+.mainPart .hiddenPage table {
+  text-align: left;
+  width: 90%;
+}
+.mainPart .hiddenPage table tr {
+  vertical-align: top;
+}
+.mainPart .hiddenPage #headingIntro {
   position: relative;
   left: 10%;
 }
-.mainPart .hiddenPage p {
+.mainPart .hiddenPage #biography {
+  position: relative;
+  left: 10%;
+  top: 20px;
+}
+.mainPart .hiddenPage #skill {
+  position: relative;
+  left: 10%;
+  top: 20px;
+}
+.mainPart .hiddenPage#settingPart h1 {
   position: relative;
   left: 10%;
 }
-.mainPart .hiddenPage p.starBackgroundSelection {
+.mainPart .hiddenPage#settingPart p {
+  position: relative;
+  left: 10%;
+}
+.mainPart .hiddenPage#settingPart p.starBackgroundSelection {
   position: absolute;
   top: 20%;
   left: 10%;
@@ -246,19 +266,19 @@ body {
   color: rgb(0, 0, 0);
   transition: 0.2s;
 }
-.mainPart .hiddenPage p.starBackgroundSelection#starBackgroundSelectionTextUp {
+.mainPart .hiddenPage#settingPart p.starBackgroundSelection#starBackgroundSelectionTextUp {
   mix-blend-mode: normal;
   z-index: 1;
   opacity: 0;
 }
-.mainPart .hiddenPage p.starBackgroundSelection:hover {
+.mainPart .hiddenPage#settingPart p.starBackgroundSelection:hover {
   color: #ffffff;
   border: rgb(240, 238, 238) solid 5px;
 }
-.mainPart .hiddenPage p.starBackgroundSelection:hover#starBackgroundSelectionTextUp:hover {
+.mainPart .hiddenPage#settingPart p.starBackgroundSelection:hover#starBackgroundSelectionTextUp:hover {
   opacity: 1;
 }
-.mainPart .hiddenPage p.hoverBoardBackgroundSelection {
+.mainPart .hiddenPage#settingPart p.hoverBoardBackgroundSelection {
   position: absolute;
   top: 40%;
   left: 10%;
@@ -276,20 +296,20 @@ body {
   color: rgb(163, 163, 163);
   transition: 0.2s;
 }
-.mainPart .hiddenPage p.hoverBoardBackgroundSelection#hoverBoardBackgroundSelectionTextUp {
+.mainPart .hiddenPage#settingPart p.hoverBoardBackgroundSelection#hoverBoardBackgroundSelectionTextUp {
   mix-blend-mode: normal;
   z-index: 1;
   opacity: 0;
 }
-.mainPart .hiddenPage p.hoverBoardBackgroundSelection:hover {
+.mainPart .hiddenPage#settingPart p.hoverBoardBackgroundSelection:hover {
   color: #ffffff;
   border: rgb(240, 238, 238) solid 5px;
 }
-.mainPart .hiddenPage p.hoverBoardBackgroundSelection:hover#hoverBoardBackgroundSelectionTextUp:hover {
+.mainPart .hiddenPage#settingPart p.hoverBoardBackgroundSelection:hover#hoverBoardBackgroundSelectionTextUp:hover {
   opacity: 1;
 }
 .mainPart .hiddenPage.frontPage {
-  height: 500px;
+  height: 70vh;
   opacity: 1;
   transition: 1s;
 }
