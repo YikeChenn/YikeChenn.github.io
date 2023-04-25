@@ -59,11 +59,12 @@ $(".sideBar").click(function(){
 $(".starBackgroundSelection").click(function(){
     new Promise(resolve => {
         $('.loadingSign').fadeToggle(0)
-        resolve(1)
+        resolve()
     }).then(val =>{
         new Promise(resolve =>{
             $('link[title=starsCSS]').prop('disabled',false)
             $('link[title=hoverboardCSS]').prop('disabled',true)
+            resolve()
         })
     }).then(val =>{
         new Promise(resolve =>{
@@ -75,12 +76,12 @@ $(".starBackgroundSelection").click(function(){
 $(".hoverBoardBackgroundSelection").click(function(){
     new Promise(resolve => {
         $('.loadingSign').fadeToggle(0)
-        resolve(1)
+        resolve()
     }).then(val =>{
         new Promise(resolve =>{
             $('link[title=hoverboardCSS]').prop('disabled',false)
             $('link[title=starsCSS]').prop('disabled',true)
-            resolve(2)
+            resolve()
         })
     }).then(val =>{
         new Promise(resolve =>{

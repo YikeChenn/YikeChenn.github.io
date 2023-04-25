@@ -12,8 +12,8 @@ for(let i = 0; i < squareNum; ++i){
 function randomColor(){
     var color = ""
     for(let i = 0; i < 6; ++i){
-    color += (Math.random() * 16 | 0).toString(16)
-}
+        color += (Math.random() * 16 | 0).toString(16)
+    }
     return "#" + color
 }
     
